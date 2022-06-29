@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>kadane algorithm program in javascript</h2>
+</body>
+<script>
+function kad(a, size)
+{
+	var maxint = Math.pow(2, 53)
+	var max_now = -maxint - 1
+	var max_last = 0
+	
+	for (var i = 0; i < size; i++)
+	{
+		max_last = max_last + a[i]
+		if (max_now < max_last)
+			max_now = max_last
+
+		if (max_last < 0)
+			max_last = 0
+	}
+	return max_now
+}
+
+
+var a = [ -3, 4, -5, 1, 2, -6, 8 ]
+document.write("Maximum  sum is",
+			kad(a, a.length))
+</script>
+</html>
